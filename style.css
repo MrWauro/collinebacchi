@@ -197,14 +197,93 @@ body {
   object-fit: contain;
 }
 
-/* RESPONSIVE */
+/* =========================
+   RESPONSIVE — MOBILE
+   ========================= */
+
 @media (max-width: 768px) {
-  .product-row {
+
+  /* HEADER */
+  .header-flex {
     flex-direction: column;
+    align-items: center;
+    gap: 1rem;
   }
 
+  .brand {
+    justify-content: center;
+  }
+
+  .main-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .main-nav a {
+    margin: 0.3rem 0;
+    font-size: 1rem;
+  }
+
+  /* HERO */
+  .hero-content {
+    padding: 2rem 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .payoff {
+    font-size: 1.1rem;
+  }
+
+  /* SEZIONI */
+  .section {
+    padding: 3rem 0;
+  }
+
+  .section h1 {
+    font-size: 1.8rem;
+  }
+
+  .section h2 {
+    font-size: 1.25rem;
+  }
+
+  /* PRODOTTI */
+  .product-row {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .product-media {
+    order: -1; /* immagini sopra al testo su mobile */
+  }
+
+  .oil-bottle {
+    max-width: 180px;
+  }
+
+  .product-field {
+    max-width: 100%;
+  }
+
+  /* SERVIZI */
+  .services-hero {
+    min-height: auto;
+    padding: 3rem 0;
+  }
+
+  .services-hero .container {
+    padding: 2rem;
+  }
+
+  /* FOOTER */
   .footer-flex {
     flex-direction: column;
     text-align: center;
   }
+
 }
