@@ -36,8 +36,8 @@ body {
 }
 
 .logo-img {
-  width: 55px;
-  height: 55px;
+  width: 80px;
+  height: 80px;
   align-items: left;
   object-fit: contain;
 }
@@ -202,6 +202,11 @@ body {
    ========================= */
 
 @media (max-width: 768px) {
+.logo-img {
+    width: 56px;
+    height: 56px;
+  }
+}
 
   /* HEADER */
   .header-flex {
