@@ -393,10 +393,10 @@ a:hover {
 
   /* Immagini */
   .feature img {
-    width: 200px;
+    width: 230px;
     height: auto;
     display: block;
-    margin: 0 auto 15px auto;
+    margin: 0 auto 5px auto;
   }
  
   .feature h2 {
