@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /icons/
+Disallow: /css/
+Disallow: /js/
+
+Sitemap: https://collinebacchi.com/sitemap.xml
