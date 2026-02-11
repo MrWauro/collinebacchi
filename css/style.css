@@ -301,18 +301,19 @@ body {
 
 @media (max-width: 900px) {
 
-  /* Hamburger */
+  /* Mostra hamburger */
   .menu-toggle {
     display: block;
   }
 
-  /* Nasconde menu desktop */
-  .main-header ul {
+  /* Nasconde SEMPRE menu desktop */
+  #nav-menu {
     display: none;
   }
 
-  /* Menu mobile */
-  #nav-menu {
+  /* Menu attivo */
+  #nav-menu.active {
+    display: flex;
     position: absolute;
     top: 80px;
     right: 20px;
@@ -322,10 +323,7 @@ body {
     box-shadow: 0 15px 30px rgba(0,0,0,0.08);
     flex-direction: column;
     gap: 18px;
-  }
-
-  #nav-menu.active {
-    display: flex;
+    z-index: 1000;
   }
 
   /* Hero */
