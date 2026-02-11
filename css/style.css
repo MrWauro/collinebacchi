@@ -345,11 +345,9 @@ a:hover {
   .menu-toggle {
     display: block;
     position: relative;
-    right: 20px;
-    top: 20px;
     background: none;
     border: none;
-    font-size: 25px;
+    font-size: 35px;
     color: #3c2e24;
     cursor: pointer;
     z-index: 1000;
