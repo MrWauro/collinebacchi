@@ -337,7 +337,6 @@ a:hover {
     justify-content: flex-end; 
     padding: 0 20px;
    
-  /* Rimuove linee header */
   .header-line {
     display: none;
   }
@@ -345,12 +344,12 @@ a:hover {
   /* Hamburger */
   .menu-toggle {
     display: block;
-    position: absolute;
+    position: relative;
     right: 20px;
-    top: 25px;
+    top: 20px;
     background: none;
     border: none;
-    font-size: 30px;
+    font-size: 25px;
     color: #3c2e24;
     cursor: pointer;
     z-index: 1000;
