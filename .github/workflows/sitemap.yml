@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,21 +22,30 @@ jobs:
 
           for file in *.html; do
             if [ "$file" != "404.html" ]; then
-              echo "  <url>" >> sitemap.xml
-              echo "    <loc>https://collinebacchi.com/${file}</loc>" >> sitemap.xml
-              echo "    <lastmod>$(date +%Y-%m-%d)</lastmod>" >> sitemap.xml
-              echo "    <changefreq>monthly</changefreq>" >> sitemap.xml
-              echo "    <priority>0.8</priority>" >> sitemap.xml
-              echo "  </url>" >> sitemap.xml
+              if [ "$file" = "index.html" ]; then
+                echo "  <url>" >> sitemap.xml
+                echo "    <loc>https://collinebacchi.com/</loc>" >> sitemap.xml
+                echo "    <lastmod>$(date +%Y-%m-%d)</lastmod>" >> sitemap.xml
+                echo "    <changefreq>weekly</changefreq>" >> sitemap.xml
+                echo "    <priority>1.0</priority>" >> sitemap.xml
+                echo "  </url>" >> sitemap.xml
+              else
+                echo "  <url>" >> sitemap.xml
+                echo "    <loc>https://collinebacchi.com/${file}</loc>" >> sitemap.xml
+                echo "    <lastmod>$(date +%Y-%m-%d)</lastmod>" >> sitemap.xml
+                echo "    <changefreq>monthly</changefreq>" >> sitemap.xml
+                echo "    <priority>0.8</priority>" >> sitemap.xml
+                echo "  </url>" >> sitemap.xml
+              fi
             fi
           done
 
           echo '</urlset>' >> sitemap.xml
 
-      - name: Commit sitemap
+      - name: Commit sitemap if changed
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           git add sitemap.xml
-          git commit -m "Auto update sitemap"
+          git diff --cached --quiet || git commit -m "Auto update sitemap"
           git push
