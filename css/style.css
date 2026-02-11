@@ -329,6 +329,14 @@ a:hover {
 
 @media (max-width: 900px) {
 
+  .main-header {
+    position: relative;
+    height: 70px;              
+    display: flex;
+    align-items: center;       
+    justify-content: flex-end; 
+    padding: 0 20px;
+   
   /* Rimuove linee header */
   .header-line {
     display: none;
