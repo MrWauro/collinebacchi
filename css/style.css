@@ -141,8 +141,8 @@ a:hover {
 }
 
 .hero-logo {
-  width: 180px;
-  height: auto;
+  height: 300px;
+  width: auto;
   max-width: 100%;
   opacity: 0;
   transform: translateY(30px);
@@ -392,9 +392,9 @@ a:hover {
     border: none;
   }
 
-  /* Immagini NON deformate */
+  /* Immagini */
   .feature img {
-    width: 110px;
+    width: 140px;
     height: auto;
     display: block;
     margin: 0 auto 20px auto;
