@@ -331,7 +331,7 @@ a:hover {
 
   .main-header {
     position: relative;
-    height: 70px;              
+    height: 80px;              
     display: flex;
     align-items: center;       
     justify-content: flex-end; 
