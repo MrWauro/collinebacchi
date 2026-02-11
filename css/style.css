@@ -14,6 +14,18 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
+a {
+  color: #3c2e24;
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+.foot-col a {
+  text-decoration: underline;
+}
 
 /* =========================
    INTRO SEO
@@ -65,6 +77,8 @@ body {
 
 .main-header a {
   text-decoration: none;
+  padding: 12px 8px;
+  display: inline-block;
   font-family: 'Playfair Display', serif;
   font-weight: 600;
   letter-spacing: 1px;
@@ -189,7 +203,7 @@ body {
 .btn {
   display: inline-block;
   padding: 13px 32px;
-  background: #b89568;
+  background: #9f7a4f;
   color: white;
   text-decoration: none;
   border-radius: 3px;
@@ -197,7 +211,7 @@ body {
 }
 
 .btn:hover {
-  background: #a67f53;
+  background: #8c693f;
 }
 
 .btn:active {
@@ -275,6 +289,17 @@ body {
 .foot-col ul {
   list-style: none;
   padding: 0;
+}
+
+.foot-col a {
+  display: inline-block;
+  padding: 6px 0;
+}
+
+.foot-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  margin-bottom: 20px;
 }
 
 .footer-social {
