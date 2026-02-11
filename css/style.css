@@ -393,12 +393,16 @@ a:hover {
 
   /* Immagini */
   .feature img {
-    width: 180px;
+    width: 200px;
     height: auto;
     display: block;
-    margin: 0 auto 20px auto;
+    margin: 0 auto 15px auto;
   }
-
+ 
+  .feature h2 {
+    margin-top: 5px;
+  }
+   
   /* Divisori eleganti tra features */
   .feature {
     border-bottom: 1px solid #d8cbb9;
