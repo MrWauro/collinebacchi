@@ -16,8 +16,15 @@
 <title>Colline Bacchi | Azienda Agricola a Civitanova Marche</title>
 <meta name="description" content="Colline Bacchi è un’azienda agricola a Civitanova Marche. Produzione di olio extravergine di oliva e frutta di stagione coltivata nelle colline marchigiane.">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;500&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'">
+
+<noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;500&display=swap"
+        rel="stylesheet">
+</noscript>
 
 <link rel="stylesheet" href="css/style.css">
 <link rel="canonical" href="https://collinebacchi.com/">
@@ -74,14 +81,16 @@
 </header>
 
 <section class="hero">
-  <picture>
-   <source media="(max-width: 768px)" srcset="img/hero-mobile.webp">
-   <img src="img/hero-desktop.webp"
-        alt="Colline Bacchi"
-        width="1600"
-        height="900"
-        class="hero-img">
-  </picture>
+<picture>
+  <source media="(max-width: 768px)" srcset="img/hero-mobile.webp">
+  <img 
+    src="img/hero-desktop.webp"
+    alt="Colline Bacchi"
+    width="1400"
+    height="800"
+    class="hero-img"
+    fetchpriority="high">
+</picture>
   <div class="hero-overlay"></div>
   <div class="hero-text">
     <img src="img/logo.png" alt="Colline Bacchi" class="hero-logo">
