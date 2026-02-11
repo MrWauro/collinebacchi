@@ -507,20 +507,25 @@ footer {
   border: none;
   font-size: 28px;
   cursor: pointer;
+  z-index: 1001;
 }
 
+/* MOBILE */
 @media (max-width: 900px) {
 
   nav ul {
     position: absolute;
-    top: 70px;
+    top: 80px;
     right: 0;
     background: #f4ede3;
-    width: 220px;
-    flex-direction: column;
-    padding: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    width: 240px;
+    padding: 25px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+
     display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
   }
 
   nav ul.active {
