@@ -97,6 +97,7 @@ a:hover {
   border: none;
   font-size: 28px;
   cursor: pointer;
+  color: #3c2e24;
   position: absolute;
   right: 30px;
   top: 25px;
@@ -141,6 +142,8 @@ a:hover {
 
 .hero-logo {
   width: 180px;
+  height: auto;
+  max-width: 100%;
   opacity: 0;
   transform: translateY(30px);
   animation: heroFadeIn 1.6s ease-out forwards;
@@ -179,6 +182,7 @@ a:hover {
 
 .feature img {
   height: 210px;
+  width: auto;
   margin-bottom: 10px;
 }
 
@@ -326,6 +330,10 @@ a:hover {
 
 @media (max-width: 900px) {
 
+  .header-line {
+    display: none;
+  }
+
   /* Mostra hamburger */
   .menu-toggle {
     display: block;
@@ -359,6 +367,8 @@ a:hover {
 
   .hero-logo {
     width: 120px;
+    height: auto;
+    max-width: 100%;
   }
 
   /* Features */
@@ -374,6 +384,7 @@ a:hover {
 
   .feature img {
     height: 90px;
+    weight: auto;
   }
 
   /* Banner */
