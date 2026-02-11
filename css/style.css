@@ -330,16 +330,26 @@ a:hover {
 
 @media (max-width: 900px) {
 
+  /* Rimuove linee header */
   .header-line {
     display: none;
   }
 
-  /* Mostra hamburger */
+  /* Hamburger */
   .menu-toggle {
     display: block;
+    position: absolute;
+    right: 20px;
+    top: 25px;
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: #3c2e24;
+    cursor: pointer;
+    z-index: 1000;
   }
 
-  /* Nasconde SEMPRE menu desktop */
+  /* Menu nascosto */
   #nav-menu {
     display: none;
   }
@@ -359,35 +369,51 @@ a:hover {
     z-index: 1000;
   }
 
-  /* Hero */
+  /* HERO */
   .hero {
     height: 45vh;
     min-height: 320px;
   }
 
   .hero-logo {
-    width: 120px;
+    width: 140px;
     height: auto;
     max-width: 100%;
   }
 
-  /* Features */
+  /* FEATURES */
   .features {
     flex-direction: column;
     padding: 40px 20px 60px 20px;
-    gap: 30px;
+    gap: 0;
   }
 
   .bordered {
     border: none;
   }
 
+  /* Immagini NON deformate */
   .feature img {
-    height: 90px;
-    weight: auto;
+    width: 110px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px auto;
   }
 
-  /* Banner */
+  /* Divisori eleganti tra features */
+  .feature {
+    border-bottom: 1px solid #d8cbb9;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+  }
+
+  .feature:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  /* BANNER */
   .banner {
     margin: 30px 15px;
     height: 220px;
@@ -405,7 +431,7 @@ a:hover {
     font-size: 14px;
   }
 
-  /* Footer */
+  /* FOOTER */
   .foot-container {
     flex-direction: column;
     gap: 30px;
