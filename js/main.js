@@ -19,4 +19,10 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
+  // ANNO AUTOMATICO
+  const yearSpan = document.getElementById("year");
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+  }
+
 });
