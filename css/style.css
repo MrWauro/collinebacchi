@@ -450,55 +450,60 @@ a:hover {
 
 }
 
-/* =========================
-   LEGAL PAGES - EDITORIAL
-========================= */
+/* =============
+   LEGAL PAGES 
+================ */
+
+.legal-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 100px 20px 120px 20px;
+}
 
 .legal-page {
-  max-width: 880px;
-  margin: 0 auto;
-  padding: 90px 30px 120px 30px;
-  line-height: 1.9;
+  max-width: 860px;
+  width: 100%;
+  line-height: 1.95;
+  font-size: 16px;
 }
 
 .legal-page h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 34px;
-  margin-bottom: 25px;
+  font-size: 38px;
+  margin-bottom: 15px;
 }
 
-.legal-page .legal-subtitle {
-  font-size: 16px;
+.legal-subtitle {
+  font-size: 17px;
   font-weight: 300;
   margin-bottom: 50px;
 }
 
 .legal-page h2 {
   font-family: 'Playfair Display', serif;
-  font-size: 20px;
+  font-size: 22px;
   margin-top: 55px;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 .legal-page h3 {
-  font-size: 17px;
-  margin-top: 25px;
+  font-size: 18px;
+  margin-top: 30px;
   margin-bottom: 12px;
 }
 
 .legal-page p {
-  font-size: 15px;
   font-weight: 300;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
 .legal-page ul {
-  padding-left: 20px;
-  margin-bottom: 25px;
+  padding-left: 25px;
+  margin-bottom: 30px;
 }
 
 .legal-page li {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .legal-divider {
