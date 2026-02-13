@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
   /* =========================
-     HAMBURGER MENU
+     HAMBURGER MENU 
   ========================= */
 
   const toggle = document.getElementById("menu-toggle");
