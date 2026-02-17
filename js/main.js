@@ -68,58 +68,85 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  /* =========================
-     GOOGLE CONSENT MODE
-  ========================= */
+ /* =========================
+   COOKIE CONSENT SYSTEM
+========================= */
 
-  const acceptBtn = document.getElementById("accept-cookies");
-  const rejectBtn = document.getElementById("reject-cookies");
-  const storedConsent = localStorage.getItem("cookieConsent");
+const banner = document.getElementById("cookie-banner");
+const acceptAll = document.getElementById("accept-all");
+const rejectAll = document.getElementById("reject-all");
+const customizeBtn = document.getElementById("customize");
+const settingsPanel = document.getElementById("cookie-settings");
+const savePrefs = document.getElementById("save-preferences");
 
-  if (storedConsent === "accepted") {
-    if (typeof gtag === "function") {
-      gtag('consent', 'update', {
-        'ad_storage': 'granted',
-        'analytics_storage': 'granted',
-        'ad_user_data': 'granted',
-        'ad_personalization': 'granted'
-      });
-    }
-  }
-  
-  if (acceptBtn) {
-    acceptBtn.addEventListener("click", function () {
+const analyticsCheckbox = document.getElementById("analytics-consent");
+const marketingCheckbox = document.getElementById("marketing-consent");
 
-      localStorage.setItem("cookieConsent", "accepted");
+const storedConsent = localStorage.getItem("cookieConsent");
 
-      if (typeof gtag === "function") {
-        gtag('consent', 'update', {
-          'ad_storage': 'granted',
-          'analytics_storage': 'granted',
-          'ad_user_data': 'granted',
-          'ad_personalization': 'granted'
-        });
-      }
+if (!storedConsent && banner) {
+  banner.style.display = "block";
+}
 
+function applyConsent(analytics, marketing) {
+
+  localStorage.setItem("cookieConsent", JSON.stringify({
+    analytics: analytics,
+    marketing: marketing
+  }));
+
+  if (banner) banner.style.display = "none";
+
+  if (typeof gtag === "function") {
+    gtag('consent', 'update', {
+      'analytics_storage': analytics ? 'granted' : 'denied',
+      'ad_storage': marketing ? 'granted' : 'denied',
+      'ad_user_data': marketing ? 'granted' : 'denied',
+      'ad_personalization': marketing ? 'granted' : 'denied'
     });
   }
+}
 
-  if (rejectBtn) {
-    rejectBtn.addEventListener("click", function () {
+/* Ripristina consenso salvato */
+if (storedConsent) {
+  const parsed = JSON.parse(storedConsent);
 
-      localStorage.setItem("cookieConsent", "rejected");
-
-      if (typeof gtag === "function") {
-        gtag('consent', 'update', {
-          'ad_storage': 'denied',
-          'analytics_storage': 'denied',
-          'ad_user_data': 'denied',
-          'ad_personalization': 'denied'
-        });
-      }
-
+  if (typeof gtag === "function") {
+    gtag('consent', 'update', {
+      'analytics_storage': parsed.analytics ? 'granted' : 'denied',
+      'ad_storage': parsed.marketing ? 'granted' : 'denied',
+      'ad_user_data': parsed.marketing ? 'granted' : 'denied',
+      'ad_personalization': parsed.marketing ? 'granted' : 'denied'
     });
   }
+}
+
+if (acceptAll) {
+  acceptAll.addEventListener("click", function () {
+    applyConsent(true, true);
+  });
+}
+
+if (rejectAll) {
+  rejectAll.addEventListener("click", function () {
+    applyConsent(false, false);
+  });
+}
+
+if (customizeBtn) {
+  customizeBtn.addEventListener("click", function () {
+    if (settingsPanel) settingsPanel.style.display = "flex";
+  });
+}
+
+if (savePrefs) {
+  savePrefs.addEventListener("click", function () {
+    applyConsent(
+      analyticsCheckbox ? analyticsCheckbox.checked : false,
+      marketingCheckbox ? marketingCheckbox.checked : false
+    );
+  });
+}
   
   /* =========================
      COPYRIGHT YEAR
