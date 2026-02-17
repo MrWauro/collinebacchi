@@ -84,8 +84,11 @@ const marketingCheckbox = document.getElementById("marketing-consent");
 
 const storedConsent = localStorage.getItem("cookieConsent");
 
-if (!storedConsent && banner) {
+const overlay = document.getElementById("cookie-overlay");
+
+if (!storedConsent && banner && overlay) {
   banner.style.display = "block";
+  overlay.style.display = "block";
 }
 
 function applyConsent(analytics, marketing) {
@@ -96,6 +99,7 @@ function applyConsent(analytics, marketing) {
   }));
 
   if (banner) banner.style.display = "none";
+  if (overlay) overlay.style.display = "none";
 
   if (typeof gtag === "function") {
     gtag('consent', 'update', {
