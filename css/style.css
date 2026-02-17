@@ -574,3 +574,67 @@ a:hover {
   }
 
 }
+
+/* =========================
+   COOKIE BANNER
+========================= */
+
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #f4ede3;
+  border-top: 1px solid #d8cbb9;
+  padding: 30px;
+  z-index: 9999;
+  display: none;
+}
+
+.cookie-box {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.cookie-box p {
+  font-size: 15px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.cookie-actions {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn-cookie {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.btn-cookie.primary {
+  background: #3c2e24;
+  color: white;
+}
+
+.btn-cookie.secondary {
+  background: #d8cbb9;
+  color: #3c2e24;
+}
+
+.btn-cookie.link {
+  background: none;
+  color: #3c2e24;
+  text-decoration: underline;
+}
+
+.cookie-settings {
+  margin-top: 20px;
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+}
