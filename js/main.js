@@ -69,6 +69,59 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   /* =========================
+     GOOGLE CONSENT MODE
+  ========================= */
+
+  const acceptBtn = document.getElementById("accept-cookies");
+  const rejectBtn = document.getElementById("reject-cookies");
+  const storedConsent = localStorage.getItem("cookieConsent");
+
+  if (storedConsent === "accepted") {
+    if (typeof gtag === "function") {
+      gtag('consent', 'update', {
+        'ad_storage': 'granted',
+        'analytics_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted'
+      });
+    }
+  }
+  
+  if (acceptBtn) {
+    acceptBtn.addEventListener("click", function () {
+
+      localStorage.setItem("cookieConsent", "accepted");
+
+      if (typeof gtag === "function") {
+        gtag('consent', 'update', {
+          'ad_storage': 'granted',
+          'analytics_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'granted'
+        });
+      }
+
+    });
+  }
+
+  if (rejectBtn) {
+    rejectBtn.addEventListener("click", function () {
+
+      localStorage.setItem("cookieConsent", "rejected");
+
+      if (typeof gtag === "function") {
+        gtag('consent', 'update', {
+          'ad_storage': 'denied',
+          'analytics_storage': 'denied',
+          'ad_user_data': 'denied',
+          'ad_personalization': 'denied'
+        });
+      }
+
+    });
+  }
+  
+  /* =========================
      COPYRIGHT YEAR
   ========================= */
 
