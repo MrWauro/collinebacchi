@@ -576,120 +576,165 @@ a:hover {
 }
 
 /* =========================
-   COOKIE MODAL OVERLAY
+   COOKIE OVERLAY
 ========================= */
 
 #cookie-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.45);
-  backdrop-filter: blur(3px);
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(4px);
   z-index: 9998;
   display: none;
 }
 
+
+/* =========================
+   COOKIE BANNER
+========================= */
+
 #cookie-banner {
   position: fixed;
   left: 50%;
-  bottom: 40px;
+  bottom: 50px;
   transform: translateX(-50%);
-  width: 90%;
-  max-width: 820px;
-  background: rgba(28,22,18,0.97);
+  width: 92%;
+  max-width: 860px;
+  background: linear-gradient(145deg, #1f1813, #2b211a);
   color: #f4ede3;
-  padding: 28px 30px;
-  border-radius: 8px;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+  padding: 34px 40px;
+  border-radius: 12px;
+  box-shadow: 0 35px 90px rgba(0,0,0,0.45);
   z-index: 9999;
   display: none;
   animation: cookieFade 0.35s ease;
 }
 
-.cookie-text {
-  font-size: 14px;
-  line-height: 1.7;
-  margin-bottom: 20px;
+
+/* =========================
+   TESTO
+========================= */
+
+#cookie-banner p {
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 24px;
+  font-weight: 300;
 }
+
+
+/* =========================
+   BOTTONI
+========================= */
 
 .cookie-actions {
   display: flex;
-  gap: 14px;
+  gap: 16px;
   flex-wrap: wrap;
+  margin-bottom: 18px;
 }
 
-.cookie-actions button {
-  padding: 10px 18px;
+.btn-cookie {
+  padding: 11px 20px;
   font-size: 14px;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
+  transition: all 0.25s ease;
   border: none;
-  transition: 0.2s ease;
+  font-weight: 500;
 }
 
-/* Pulsanti */
-
-#accept-all {
+.btn-cookie.primary {
   background: #9f7a4f;
   color: white;
 }
 
-#reject-all {
-  background: #6a5a48;
-  color: white;
+.btn-cookie.primary:hover {
+  background: #8c693f;
 }
 
-#customize {
-  background: transparent;
-  border: 1px solid #f4ede3;
+.btn-cookie.secondary {
+  background: #5c4a38;
   color: #f4ede3;
 }
 
-.cookie-actions button:hover {
-  opacity: 0.85;
+.btn-cookie.secondary:hover {
+  background: #4a3c2e;
 }
 
-@keyframes cookieFade {
-  from { opacity: 0; transform: translate(-50%, 20px); }
-  to   { opacity: 1; transform: translate(-50%, 0); }
+.btn-cookie.link {
+  background: transparent;
+  border: 1px solid #bfa682;
+  color: #f4ede3;
 }
 
-/* Mobile */
-
-@media (max-width: 768px) {
-  #cookie-banner {
-    bottom: 20px;
-    padding: 22px;
-  }
-
-  .cookie-actions {
-    flex-direction: column;
-  }
-
-  .cookie-actions button {
-    width: 100%;
-  }
+.btn-cookie.link:hover {
+  background: rgba(255,255,255,0.05);
 }
+
 
 /* =========================
-   COOKIE SETTINGS PANEL
+   PANNELLO PERSONALIZZAZIONE
 ========================= */
 
 .cookie-settings {
-  margin-top: 18px;
   display: none;
-  font-size: 14px;
-  line-height: 1.6;
-  border-top: 1px solid rgba(255,255,255,0.2);
-  padding-top: 15px;
+  flex-direction: column;
+  gap: 14px;
+  border-top: 1px solid rgba(255,255,255,0.18);
+  padding-top: 18px;
 }
 
 .cookie-settings label {
-  display: block;
-  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.cookie-settings input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #9f7a4f;
+  cursor: pointer;
 }
 
 #save-preferences {
   margin-top: 12px;
   background: #9f7a4f;
   color: white;
+}
+
+
+/* =========================
+   ANIMAZIONE
+========================= */
+
+@keyframes cookieFade {
+  from { opacity: 0; transform: translate(-50%, 30px); }
+  to   { opacity: 1; transform: translate(-50%, 0); }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+  #cookie-banner {
+    bottom: 20px;
+    padding: 26px;
+  }
+
+  .cookie-actions {
+    flex-direction: column;
+  }
+
+  .btn-cookie,
+  #save-preferences {
+    width: 100%;
+  }
+
 }
