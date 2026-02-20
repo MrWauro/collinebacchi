@@ -113,16 +113,16 @@ a:hover {
   top: 0;
   left: 0;
   width: 100%;
-  background: #ffffff;
-  color: #000000;
+  background: #000000;
+  color: #ffffff;
   text-align: center;
   font-size: 13px;
-  letter-spacing: 0.8px;
-  padding: 10px 0;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 12px 0;
   z-index: 10000;
-  border-bottom: 1px solid #e5e5e5;
-  font-weight: 500;
 }
+
 
 /* Sposta il sito verso il basso */
 body {
