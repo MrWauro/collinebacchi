@@ -757,7 +757,12 @@ body {
   }
 
   .btn-cookie,
-  #save-preferences {
+  #save-preferences {  
+    width: 100%;
+  }
+
+}
+
 
 /* =========================
    AZIENDA PAGE PREMIUM
@@ -908,12 +913,6 @@ body {
 
   .production-card:last-child {
     margin-bottom: 0;
-  }
-
-}
-
-     
-    width: 100%;
   }
 
 }
