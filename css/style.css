@@ -865,7 +865,7 @@ body {
 /* Allineamento pulsanti in basso */
 
 .production-card {
-  display: fix;
+  display: flex;
   flex-direction: column;
 }
 
