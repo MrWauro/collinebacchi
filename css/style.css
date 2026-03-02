@@ -916,3 +916,56 @@ body {
   }
 
 }
+
+/* =========================
+   WHATSAPP OVERLAY BLOCK
+========================= */
+
+.whatsapp-section {
+  text-align: center;
+  padding: 0px 0px;
+}
+
+.whatsapp-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* Busta base */
+.busta-img {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+}
+
+/* Pulsante sovrapposto */
+.wapp-link {
+  position: absolute;
+  left: 50%;
+  bottom: 8%;   /* regola fine se serve */
+  transform: translateX(-50%);
+  display: inline-block;
+}
+
+/* Solo il pulsante anima */
+.wapp-img {
+  width: 260px;
+  height: auto;
+  transition: transform 0.25s ease;
+  display: block;
+}
+
+/* Hover solo sul pulsante */
+.wapp-link:hover .wapp-img {
+  transform: scale(1.50);
+}
+
+/* Click */
+.wapp-link:active .wapp-img {
+  transform: scale(0.95);
+}
+
+.wapp-link:hover {
+  opacity: 1 !important;
+}
