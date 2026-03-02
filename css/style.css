@@ -758,6 +758,161 @@ body {
 
   .btn-cookie,
   #save-preferences {
+
+/* =========================
+   AZIENDA PAGE PREMIUM
+========================= */
+
+.azienda-logo {
+  margin-bottom: 25px;
+  height: auto;
+}
+
+.azienda-storia {
+  display: flex;
+  gap: 80px;
+  align-items: center;
+  padding: 80px 100px;
+}
+
+.azienda-text {
+  flex: 1;
+}
+
+.azienda-image img {
+  width: 100%;
+  max-width: 520px;
+  border-radius: 10px;
+}
+
+/* PRODUCTIONS PREMIUM */
+
+.productions-title h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+/* Sottolineatura elegante */
+.productions-title h2::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 2px;
+  background: #9f7a4f;
+  margin: 12px auto 0 auto;
+}
+
+.productions-section {
+  margin-top: 0px;
+}
+
+.productions-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 60px 150px;
+}
+
+.row-light {
+  background: #efe6db;
+}
+
+.row-dark {
+  background: #f4ede3;
+}
+
+.production-card {
+  padding: 0 50px;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.production-content {
+  flex-grow: 1;
+}
+
+.production-card:not(:nth-child(2)) {
+  border-right: 1px solid #d8cbb9;
+}
+
+.production-icon {
+  height: 210px;
+  margin-bottom: 10px;
+}
+
+.production-card h3 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 18px;
+}
+
+.production-card p {
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+/* Allineamento pulsanti in basso */
+
+.production-card {
+  display: fix;
+  flex-direction: column;
+}
+
+.production-btn {
+  margin-top: auto;
+}
+
+/* PULSANTI PREMIUM */
+
+.production-btn {
+  display: inline-block;
+  align-self: center;
+  padding: 12px 28px;
+  background: #9f7a4f;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.25s ease;
+}
+
+.production-btn:hover {
+  background: #8c693f;
+  transform: translateY(-2px);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+  .azienda-storia {
+    flex-direction: column;
+    padding: 50px 25px;
+  }
+
+  .productions-row {
+    grid-template-columns: 1fr;
+    padding: 60px 30px;
+  }
+
+  .production-card {
+    border-right: none !important;
+    padding: 0;
+    margin-bottom: 60px;
+  }
+
+  .production-card:last-child {
+    margin-bottom: 0;
+  }
+
+}
+
+     
     width: 100%;
   }
 
