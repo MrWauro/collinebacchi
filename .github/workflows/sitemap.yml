@@ -14,6 +14,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          persist-credentials: true
 
       - name: Generate sitemap
         run: |
@@ -22,21 +24,40 @@ jobs:
 
           for file in *.html; do
             if [ "$file" != "404.html" ]; then
+
+              priority="0.8"
+              changefreq="monthly"
+
               if [ "$file" = "index.html" ]; then
-                echo "  <url>" >> sitemap.xml
-                echo "    <loc>https://collinebacchi.com/</loc>" >> sitemap.xml
-                echo "    <lastmod>$(date +%Y-%m-%d)</lastmod>" >> sitemap.xml
-                echo "    <changefreq>weekly</changefreq>" >> sitemap.xml
-                echo "    <priority>1.0</priority>" >> sitemap.xml
-                echo "  </url>" >> sitemap.xml
+                loc="https://collinebacchi.com/"
+                priority="1.0"
+                changefreq="weekly"
               else
-                echo "  <url>" >> sitemap.xml
-                echo "    <loc>https://collinebacchi.com/${file}</loc>" >> sitemap.xml
-                echo "    <lastmod>$(date +%Y-%m-%d)</lastmod>" >> sitemap.xml
-                echo "    <changefreq>monthly</changefreq>" >> sitemap.xml
-                echo "    <priority>0.8</priority>" >> sitemap.xml
-                echo "  </url>" >> sitemap.xml
+                loc="https://collinebacchi.com/${file}"
               fi
+
+              if [ "$file" = "prodotti.html" ]; then
+                priority="0.9"
+                changefreq="weekly"
+              fi
+
+              if [ "$file" = "contatti.html" ]; then
+                priority="0.7"
+                changefreq="yearly"
+              fi
+
+              if [ "$file" = "privacy.html" ] || [ "$file" = "cookie.html" ]; then
+                priority="0.3"
+                changefreq="yearly"
+              fi
+
+              echo "  <url>" >> sitemap.xml
+              echo "    <loc>$loc</loc>" >> sitemap.xml
+              echo "    <lastmod>$(date +%Y-%m-%d)</lastmod>" >> sitemap.xml
+              echo "    <changefreq>$changefreq</changefreq>" >> sitemap.xml
+              echo "    <priority>$priority</priority>" >> sitemap.xml
+              echo "  </url>" >> sitemap.xml
+
             fi
           done
 
