@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
- /* =========================
+/* =========================
    COOKIE CONSENT SYSTEM
 ========================= */
 
@@ -102,13 +102,20 @@ function applyConsent(analytics, marketing) {
   if (overlay) overlay.style.display = "none";
 
   if (typeof gtag === "function") {
+
     gtag('consent', 'update', {
       'analytics_storage': analytics ? 'granted' : 'denied',
       'ad_storage': marketing ? 'granted' : 'denied',
       'ad_user_data': marketing ? 'granted' : 'denied',
       'ad_personalization': marketing ? 'granted' : 'denied'
     });
+
+    if (analytics) {
+      gtag('event', 'page_view');
+    }
+
   }
+
 }
 
 /* Ripristina consenso salvato */
