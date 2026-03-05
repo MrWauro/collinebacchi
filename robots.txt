@@ -4,4 +4,3 @@ Allow: /
 Disallow: /icons/
 
 Sitemap: https://collinebacchi.com/sitemap.xml
- 
