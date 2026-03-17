@@ -120,15 +120,24 @@ function applyConsent(analytics, marketing) {
 
 /* Ripristina consenso salvato */
 if (storedConsent) {
-  const parsed = JSON.parse(storedConsent);
+  try {
+    const parsed = JSON.parse(storedConsent);
 
-  if (typeof gtag === "function") {
-    gtag('consent', 'update', {
-      'analytics_storage': parsed.analytics ? 'granted' : 'denied',
-      'ad_storage': parsed.marketing ? 'granted' : 'denied',
-      'ad_user_data': parsed.marketing ? 'granted' : 'denied',
-      'ad_personalization': parsed.marketing ? 'granted' : 'denied'
-    });
+    if (typeof gtag === "function") {
+      gtag('consent', 'update', {
+        'analytics_storage': parsed.analytics ? 'granted' : 'denied',
+        'ad_storage': parsed.marketing ? 'granted' : 'denied',
+        'ad_user_data': parsed.marketing ? 'granted' : 'denied',
+        'ad_personalization': parsed.marketing ? 'granted' : 'denied'
+      });
+
+      if (parsed.analytics) {
+        gtag('event', 'page_view');
+      }
+    }
+
+  } catch (e) {
+    console.warn("Errore parsing cookieConsent");
   }
 }
 
