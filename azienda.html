@@ -332,6 +332,47 @@ gtag('config', 'G-YMZYK3RHZB', {
 document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
-</body>
+<!-- COOKIE BANNER -->
+<div id="cookie-overlay"></div>
+  <div id="cookie-banner" class="cookie-banner" role="dialog" aria-modal="true">
+  <div class="cookie-box">
 
+    <p>
+      Utilizziamo cookie tecnici necessari al funzionamento del sito e,
+      previo consenso, cookie di analisi e marketing per migliorare
+      l’esperienza di navigazione.
+    </p>
+
+    <div class="cookie-actions">
+      <button id="accept-all" class="btn-cookie primary">Accetta tutto</button>
+      <button id="reject-all" class="btn-cookie secondary">Rifiuta</button>
+      <button id="customize" class="btn-cookie link">Personalizza</button>
+    </div>
+
+    <!-- PANNELLO PERSONALIZZAZIONE -->
+    <div id="cookie-settings" class="cookie-settings">
+      <label>
+        <input type="checkbox" checked disabled>
+        Cookie tecnici (necessari)
+      </label>
+
+      <label>
+        <input type="checkbox" id="analytics-consent">
+        Cookie di analisi (Google Analytics)
+      </label>
+
+      <label>
+        <input type="checkbox" id="marketing-consent">
+        Cookie marketing e pubblicità
+      </label>
+
+      <button id="save-preferences" class="btn-cookie primary">
+        Salva preferenze
+      </button>
+    </div>
+
+  </div>
+</div>
+ 
+</body>
 </html>
