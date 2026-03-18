@@ -185,6 +185,25 @@ if (savePrefs) {
     );
   });
 }
+
+/* =========================
+   WHATSAPP TRACKING
+========================= */
+
+const whatsappLinks = document.querySelectorAll(".track-whatsapp");
+
+whatsappLinks.forEach(link => {
+  link.addEventListener("click", function () {
+
+    if (typeof gtag === "function") {
+      gtag('event', 'whatsapp_click', {
+        event_category: 'engagement',
+        event_label: window.location.pathname
+      });
+    }
+
+  });
+});
   
   /* =========================
      COPYRIGHT YEAR
