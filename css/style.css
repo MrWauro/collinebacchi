@@ -969,3 +969,16 @@ body {
 .wapp-link:hover {
   opacity: 1 !important;
 }
+
+.spesa-img {
+  max-width: 420px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 10px 25px rgba(0,0,0,0.18));
+  transition: transform 0.3s ease;
+}
+
+.spesa-img:hover {
+  transform: scale(1.04);
+}
