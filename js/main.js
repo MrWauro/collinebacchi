@@ -83,13 +83,45 @@ const analyticsCheckbox = document.getElementById("analytics-consent");
 const marketingCheckbox = document.getElementById("marketing-consent");
 
 const storedConsent = localStorage.getItem("cookieConsent");
-
 const overlay = document.getElementById("cookie-overlay");
 
+/* Mostra banner se nessun consenso */
 if (!storedConsent && banner && overlay) {
   banner.style.display = "block";
   overlay.style.display = "block";
 }
+
+/* =========================
+   LOAD ANALYTICS (UNIFICATO)
+========================= */
+
+function loadAnalytics() {
+
+  if (!window.gtagLoaded) {
+
+    const script = document.createElement("script");
+    script.src = "https://www.googletagmanager.com/gtag/js?id=G-YMZYK3RHZB";
+    script.async = true;
+    document.head.appendChild(script);
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function(){dataLayer.push(arguments);};
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-YMZYK3RHZB', {
+      anonymize_ip: true
+    });
+
+    window.gtagLoaded = true;
+  }
+
+  gtag('event', 'page_view');
+}
+
+/* =========================
+   APPLY CONSENT
+========================= */
 
 function applyConsent(analytics, marketing) {
 
@@ -101,45 +133,31 @@ function applyConsent(analytics, marketing) {
   if (banner) banner.style.display = "none";
   if (overlay) overlay.style.display = "none";
 
-  if (typeof gtag === "function") {
-
-    gtag('consent', 'update', {
-      'analytics_storage': analytics ? 'granted' : 'denied',
-      'ad_storage': marketing ? 'granted' : 'denied',
-      'ad_user_data': marketing ? 'granted' : 'denied',
-      'ad_personalization': marketing ? 'granted' : 'denied'
-    });
-
-    if (analytics) {
-      gtag('event', 'page_view');
-    }
-
+  if (analytics) {
+    loadAnalytics();
   }
-
 }
 
-/* Ripristina consenso salvato */
+/* =========================
+   RIPRISTINO CONSENSO
+========================= */
+
 if (storedConsent) {
   try {
     const parsed = JSON.parse(storedConsent);
 
-    if (typeof gtag === "function") {
-      gtag('consent', 'update', {
-        'analytics_storage': parsed.analytics ? 'granted' : 'denied',
-        'ad_storage': parsed.marketing ? 'granted' : 'denied',
-        'ad_user_data': parsed.marketing ? 'granted' : 'denied',
-        'ad_personalization': parsed.marketing ? 'granted' : 'denied'
-      });
-
-      if (parsed.analytics) {
-        gtag('event', 'page_view');
-      }
+    if (parsed.analytics) {
+      loadAnalytics();
     }
 
   } catch (e) {
     console.warn("Errore parsing cookieConsent");
   }
 }
+
+/* =========================
+   EVENTI BOTTONI
+========================= */
 
 if (acceptAll) {
   acceptAll.addEventListener("click", function () {
