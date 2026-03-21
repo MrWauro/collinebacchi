@@ -117,12 +117,15 @@
   </div>
 
   <div class="feature">
-    <img src="img/azienda1.webp"
-         alt="Azienda agricola biologica Colline Bacchi a Civitanova Marche"
-         width="200"
-         height="400"
-         loading="lazy"
-         style="border-radius:10px; height: 400px; max-width:100%;">
+    <picture>
+     <source media="(max-width: 768px)" srcset="img/azienda1-mobile.webp">
+     <img 
+      src="img/azienda1.webp"
+      alt="Azienda agricola biologica Colline Bacchi a Civitanova Marche"
+      class="azienda-img"
+      loading="lazy"
+      decoding="async">
+    </picture>
   </div>
 
 </section>
