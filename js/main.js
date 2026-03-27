@@ -215,3 +215,26 @@ whatsappLinks.forEach(link => {
   }
 
 });
+
+/* =========================
+   SCROLL REVEAL (premium)
+========================= */
+
+const revealElements = document.querySelectorAll(
+  ".intro-seo, .policy-wrapper h2, .policy-wrapper p, .gallery-item"
+);
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("reveal-visible");
+    }
+  });
+}, {
+  threshold: 0.15
+});
+
+revealElements.forEach(el => {
+  el.classList.add("reveal");
+  observer.observe(el);
+});
