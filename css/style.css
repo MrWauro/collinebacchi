@@ -982,3 +982,35 @@ body {
 .spesa-img:hover {
   transform: scale(1.04);
 }
+
+/* =========================
+   REVEAL ANIMATION
+========================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ZOOM OVERLAY */
+
+#gallery-img {
+  cursor: zoom-in;
+  transition: transform 0.3s ease;
+  max-width: 90%;
+  max-height: 80%;
+}
+
+/* QUANDO ZOOM */
+#gallery-img.zoomed {
+  transform: scale(2);
+  cursor: zoom-out;
+  max-width:  150%;
+  max-height: 150%;
+}
