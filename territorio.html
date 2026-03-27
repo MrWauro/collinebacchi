@@ -119,21 +119,21 @@ ventilazione marina e biodiversità naturale crea condizioni ideali per coltivaz
     <div class="gallery-item">
       <picture>
         <source media="(max-width:768px)" srcset="img/paesaggio7-mobile.webp">
-        <img src="img/paesaggio7.webp" alt="Colline di Civitanova Marche" data-index="7">
+        <img src="img/paesaggio7.webp" alt="Colline di Civitanova Marche">
       </picture>
     </div>
 
     <div class="gallery-item">
       <picture>
         <source media="(max-width:768px)" srcset="img/paesaggio8-mobile.webp">
-        <img src="img/paesaggio8.webp" alt="Colline di Civitanova Marche" data-index="8">
+        <img src="img/paesaggio8.webp" alt="Colline di Civitanova Marche">
       </picture>
     </div>
 
     <div class="gallery-item">
       <picture>
         <source media="(max-width:768px)" srcset="img/paesaggio9-mobile.webp">
-        <img src="img/paesaggio9.webp" alt="Colline di Civitanova Marche" data-index="9">
+        <img src="img/paesaggio9.webp" alt="Colline di Civitanova Marche">
       </picture>
     </div>
 
@@ -168,42 +168,42 @@ ventilazione marina e biodiversità naturale crea condizioni ideali per coltivaz
     <div class="gallery-item">
       <picture>
         <source media="(max-width:768px)" srcset="img/paesaggio1-mobile.webp">
-        <img src="img/paesaggio1.webp" alt="Colline di Civitanova Marche" data-index="0">
+        <img src="img/paesaggio1.webp" alt="Colline di Civitanova Marche">
       </picture>
     </div>
 
     <div class="gallery-item">
       <picture>
         <source media="(max-width:768px)" srcset="img/paesaggio2-mobile.webp">
-        <img src="img/paesaggio2.webp" alt="Colline di Civitanova Marche" data-index="1">
+        <img src="img/paesaggio2.webp" alt="Colline di Civitanova Marche">
       </picture>
     </div>
 
     <div class="gallery-item">
       <picture>
         <source media="(max-width:768px)" srcset="img/paesaggio3-mobile.webp">
-        <img src="img/paesaggio3.webp" alt="Colline di Civitanova Marche" data-index="2">
+        <img src="img/paesaggio3.webp" alt="Colline di Civitanova Marche">
       </picture>
     </div>
 
     <div class="gallery-item">
       <picture>
         <source media="(max-width:768px)" srcset="img/paesaggio4-mobile.webp">
-        <img src="img/paesaggio4.webp" alt="Colline di Civitanova Marche" data-index="3">
+        <img src="img/paesaggio4.webp" alt="Colline di Civitanova Marche">
       </picture>
     </div>
 
     <div class="gallery-item">
       <picture>
         <source media="(max-width:768px)" srcset="img/paesaggio5-mobile.webp">
-        <img src="img/paesaggio5.webp" alt="Colline di Civitanova Marche" data-index="4">
+        <img src="img/paesaggio5.webp" alt="Colline di Civitanova Marche">
       </picture>
     </div>
 
     <div class="gallery-item">
       <picture>
         <source media="(max-width:768px)" srcset="img/paesaggio6-mobile.webp">
-        <img src="img/paesaggio6.webp" alt="Colline di Civitanova Marche" data-index="5">
+        <img src="img/paesaggio6.webp" alt="Colline di Civitanova Marche">
       </picture>
     </div>
 
@@ -319,15 +319,16 @@ ventilazione marina e biodiversità naturale crea condizioni ideali per coltivaz
 
 <script defer src="js/main.js"></script>
 
-
-<!-- GALLERY -->
 <script>
+/* =========================
+   GALLERY
+========================= */
+
 const images = document.querySelectorAll(".gallery-item img");
 const overlay = document.getElementById("gallery-overlay");
 const overlayImg = document.getElementById("gallery-img");
 
 let current = 0;
-let zoomed = false;
 
 /* =========================
    OPEN IMAGE
@@ -344,7 +345,7 @@ function show(){
   overlay.style.display = "flex";
   overlayImg.src = images[current].src;
 
-  resetZoom();
+  overlayImg.classList.remove("zoomed"); // reset pulito
 }
 
 /* =========================
@@ -366,30 +367,14 @@ document.getElementById("prev").onclick = () => {
 };
 
 /* =========================
-   ZOOM SEMPLICE
+   ZOOM SEMPLICE (FIX)
 ========================= */
 
-overlayImg.addEventListener("click", () => {
+overlayImg.onclick = function () {
+  overlayImg.classList.toggle("zoomed");
+};
 
-  zoomed = !zoomed;
 
-  if (zoomed) {
-    overlayImg.classList.add("zoomed");
-  } else {
-    overlayImg.classList.remove("zoomed");
-  }
-
-});
-
-/* =========================
-   RESET
-========================= */
-
-function resetZoom() {
-  zoomed = false;
-  overlayImg.classList.remove("zoomed");
-  overlayImg.style.transform = "scale(1)";
-}
 </script>
 </body>
 </html> 
