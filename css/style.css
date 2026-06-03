@@ -203,7 +203,7 @@ body {
   border-right: 1px solid #d8cbb9;
 }
 
-.feature img {
+.feature > img:not(.azienda-img) {
   height: 210px;
   width: auto;
   margin-bottom: 10px;
@@ -222,6 +222,14 @@ body {
   line-height: 1.6;
 }
 
+.azienda-img {
+  width: 100%;
+  max-width: 620px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+}
 
 /* =========================
    BUTTON
