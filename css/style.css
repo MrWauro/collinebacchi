@@ -443,7 +443,7 @@ body {
     padding-bottom: 0;
   }
 
-  .feature img {
+  .feature img:not(.azienda-img) {
     width: 230px;
     height: auto;
     display: block;
